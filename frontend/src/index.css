@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #070708;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn .35s ease;
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(.92);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-scaleUp {
+    animation: scaleUp .4s ease;
+}

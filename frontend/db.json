@@ -1,0 +1,37 @@
+{
+  "profile": {
+    "username": "anya",
+    "displayName": "",
+    "timeZone": "GMT+5:30",
+    "phone": "",
+    "avatarUrl": "http://localhost:5001/uploads/avatar-1782454660562-117984794.jpg"
+  },
+  "tasks": [
+    {
+      "id": 1782447250616,
+      "objective": "Build CLUTCH Dashboard",
+      "deadline": "2026-06-30",
+      "workload": "High",
+      "status": "pending",
+      "subtasks": [
+        {
+          "text": "Design UI",
+          "done": true
+        },
+        {
+          "text": "Connect Backend",
+          "done": true
+        }
+      ]
+    },
+    {
+      "id": 1782484844574,
+      "username": "anya",
+      "objective": "website",
+      "deadline": "2026-06-30",
+      "workload": "Medium",
+      "status": "completed",
+      "subtasks": []
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+    "tasks": [
+        {
+            "username": "GoogleUser",
+            "objective": "website",
+            "workload": "Medium",
+            "deadline": "2026-06-29",
+            "deadlineText": "June 29, 2026",
+            "deadlineDay": 29,
+            "status": "completed",
+            "createdAt": "2026-06-25",
+            "id": "a4615589-f408-4907-8366-2a5259512569",
+            "subtasks": []
+        },
+        {
+            "username": "GoogleUser",
+            "objective": "website",
+            "workload": "Medium",
+            "deadline": "2026-06-29",
+            "deadlineText": "June 29, 2026",
+            "deadlineDay": 29,
+            "status": "completed",
+            "createdAt": "2026-06-25",
+            "id": "14036ebd-8ac2-4d5e-9e54-baa328d238d7",
+            "subtasks": []
+        },
+        {
+            "username": "GoogleUser",
+            "objective": "website",
+            "workload": "Medium",
+            "deadline": "2026-06-29",
+            "deadlineText": "June 29, 2026",
+            "deadlineDay": 29,
+            "status": "completed",
+            "createdAt": "2026-06-25",
+            "id": "e44c0e2d-9e28-4e82-85c1-7d2923c32d6a",
+            "subtasks": []
+        },
+        {
+            "username": "GoogleUser",
+            "objective": "website",
+            "workload": "Large",
+            "deadline": "2026-06-29",
+            "deadlineText": "June 29, 2026",
+            "deadlineDay": 29,
+            "status": "completed",
+            "createdAt": "2026-06-25",
+            "id": "cda101eb-45c1-4e45-bfff-527b244ac8fe",
+            "subtasks": []
+        },
+        {
+            "username": "GoogleUser",
+            "objective": "u",
+            "workload": "Medium",
+            "deadline": "2026-06-29",
+            "deadlineText": "June 29, 2026",
+            "deadlineDay": 29,
+            "status": "completed",
+            "createdAt": "2026-06-25",
+            "id": "32fb9cc9-c880-40b4-851e-dfe5ecf5921d",
+            "subtasks": []
+        },
+        {
+            "username": "GoogleUser",
+            "objective": "u",
+            "workload": "Medium",
+            "deadline": "2026-06-29",
+            "deadlineText": "June 29, 2026",
+            "deadlineDay": 29,
+            "status": "pending",
+            "createdAt": "2026-06-25",
+            "id": "44690d15-6275-45a9-b13f-813dd9a14452"
+        },
+        {
+            "username": "googleuser",
+            "objective": "assignment",
+            "workload": "Small",
+            "deadline": "2026-06-30",
+            "deadlineText": "June 30, 2026",
+            "deadlineDay": 30,
+            "status": "pending",
+            "createdAt": "2026-06-25",
+            "id": "7b745b36-3c58-4c73-8aa1-0323d837a9f3"
+        }
+    ]
+}
