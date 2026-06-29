@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+// 🟢 STEP 1: Add the dynamic API base address setup here
+const API_BASE_URL = process.env.NODE_ENV === 'production'
+  ? 'https://clutch-backend-placeholder-xxxx.a.run.app' // We will replace this with your actual Google Cloud URL later!
+  : 'http://localhost:5001';
+
 export default function Dashboard() {
   const navigate = useNavigate();
   const [tasks, setTasks] = useState([]);
@@ -61,13 +66,15 @@ export default function Dashboard() {
   // --- 🛠️ REALTIME FLASK OPERATION LAYER ENGINE ---
   const fetchTasksFromBackend = async () => {
     try {
-      const response = await axios.get(`http://localhost:5001/api/tasks?username=${computedUser}`);
+      // 🟢 Updated URL
+      const response = await axios.get(`${API_BASE_URL}/api/tasks?username=${computedUser}`);
       
       if (response.data && response.data.length > 0) {
         setTasks(response.data);
       } else {
         console.warn(`📡 Zero channels for "${computedUser}". Pulling root telemetry context...`);
-        const globalResponse = await axios.get(`http://localhost:5001/api/tasks`);
+        // 🟢 Updated URL
+        const globalResponse = await axios.get(`${API_BASE_URL}/api/tasks`);
         setTasks(globalResponse.data || []);
       }
     } catch (err) {
@@ -97,7 +104,7 @@ export default function Dashboard() {
 
   const triggerXpPopup = (text, points) => {
     setXpPopup({ text, points });
-    setTimeout(() => setXpPopup(null), 3500); // Extended slightly so you can absorb the animations
+    setTimeout(() => setXpPopup(null), 3500); 
   };
 
   const forceCompleteTask = async (taskId) => {
@@ -113,12 +120,13 @@ export default function Dashboard() {
           : { text: s, done: true }
       );
 
-      await axios.put(`http://localhost:5001/api/tasks/${taskId}`, {
+      // 🟢 Updated URL
+      await axios.put(`${API_BASE_URL}/api/tasks/${taskId}`, {
         status: "completed",
         subtasks: completedSubtasks
       });
 
-      triggerXpPopup("VICTORY", 150); // Triggers Valorant Victory Screen
+      triggerXpPopup("VICTORY", 150);
       fetchTasksFromBackend();
     } catch (err) {
       console.error(err);
@@ -131,7 +139,8 @@ export default function Dashboard() {
       const subtaskList = targetTask?.subtasks || targetTask?.tactical_subtasks || [];
       const resetSubtasks = subtaskList.map(s => typeof s === 'object' ? { ...s, done: false } : { text: s, done: false });
       
-      await axios.put(`http://localhost:5001/api/tasks/${taskId}`, {
+      // 🟢 Updated URL
+      await axios.put(`${API_BASE_URL}/api/tasks/${taskId}`, {
         status: 'pending',
         subtasks: resetSubtasks
       });
@@ -163,13 +172,14 @@ export default function Dashboard() {
     const nextStatus = updatedSubtasks.every(s => s.done) ? 'completed' : 'pending';
 
     try {
-      await axios.put(`http://localhost:5001/api/tasks/${taskId}`, {
+      // 🟢 Updated URL
+      await axios.put(`${API_BASE_URL}/api/tasks/${taskId}`, {
         subtasks: updatedSubtasks,
         status: nextStatus
       });
       
       if (nextStatus === 'completed') {
-        triggerXpPopup("VICTORY", 150); // Triggers Valorant Victory Screen upon finishing final subtask
+        triggerXpPopup("VICTORY", 150);
       }
       
       fetchTasksFromBackend();
@@ -227,7 +237,8 @@ export default function Dashboard() {
     setAiLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5001/api/tasks/generate-preview', {
+      // 🟢 Updated URL
+      const response = await axios.post(`${API_BASE_URL}/api/tasks/generate-preview`, {
         objective: activeTask.objective,
         user_message: sendingInput, 
         workload: activeTask.workload
@@ -373,7 +384,7 @@ export default function Dashboard() {
         </div>
       )}
 
-      {/* VALORANT STYLE MATCH VICTORY POPUP SYSTEM */}
+      {/* CINEMATIC VALORANT MATCH VICTORY BANNER POPUP */}
       {xpPopup && (
         <div className="fixed inset-0 flex flex-col items-center justify-center z-[999999] pointer-events-none bg-slate-950/40 backdrop-blur-[1px] animate-fadeIn">
           <div className="w-full bg-gradient-to-r from-transparent via-[#dec177]/95 to-transparent py-7 border-y-2 border-[#efe3be]/60 text-center shadow-[0_0_60px_rgba(222,193,119,0.4)] transform scale-100 transition-all duration-300">
